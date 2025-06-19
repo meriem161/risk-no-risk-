@@ -325,6 +325,17 @@ joblib.load("colonnes_risques.pkl")
 """# ***LES DEPASSEMENTS***"""
 
 
+import matplotlib.pyplot as plt
+
+# Appliquer une taille d'écriture uniforme pour tous les éléments
+plt.rcParams.update({
+    'font.size': 10,         # Taille générale du texte
+    'axes.titlesize': 10,    # Taille des titres
+    'axes.labelsize': 10,    # Taille des labels X/Y
+    'xtick.labelsize': 10,   # Taille des ticks X
+    'ytick.labelsize': 10,   # Taille des ticks Y
+    'legend.fontsize': 10,   # Taille de la légende
+})
 
 
 # === 1. Fusion des données projet + risques prédits ===
@@ -684,7 +695,7 @@ def plot_risk_matrix(projet_id, risques_df):
         p, g = int(row['Probabilité']), int(row['Gravité'])
         name = row.get('Risque_Complet', row.get('Risque_Court', 'Inconnu'))
         i, j = p - 1, g - 1
-        wrapped = wrap_label(f"• {name}", width=40)
+        wrapped = wrap_label(f"• {name}", width=50)
         labels[i, j] += wrapped + "\n"
 
     unique_colors = ['green', 'yellow', 'orange', 'red']
