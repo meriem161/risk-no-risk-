@@ -428,9 +428,9 @@ def simulation_monte_carlo(data_reelle, titre="Dépassement de Coût", unite="$"
         x_val = value / 1_000_000 if unite.lower() in ["$", "$"] else value
         resultats.append(value)
         plt.axhline(y=s, color=c, linestyle='--')
-        plt.text(x_val, s + 0.02, f'{int(s*100)}% ≤ {format_value(value)}', color=c, fontweight='bold',fontsize=10)
+        plt.text(x_val, s + 0.02, f'{int(s*100)}% ≤ {format_value(value)}', color=c, fontweight='bold')
 
-    plt.title(f"📈 Simulation Monte Carlo - {titre}",fontsize=12)
+    plt.title(f"📈 Simulation Monte Carlo - {titre}")
     plt.xlabel(x_label)
     plt.ylabel("Probabilité cumulée")
     plt.grid(True)
@@ -455,7 +455,7 @@ def afficher_barres_comparatives(prevu, valeurs_simulees, titre, unite, couleur_
 
     plt.figure(figsize=(8, 5))
     plt.bar(labels, valeurs_affichables, color=couleurs)
-    plt.title(f"📊 {titre} Prévu vs Réels (Simulation Monte Carlo)",fontsize=12)
+    plt.title(f"📊 {titre} Prévu vs Réels (Simulation Monte Carlo)")
     plt.ylabel(ylabel)
     plt.grid(axis='y')
     plt.tight_layout()
@@ -497,12 +497,12 @@ duree_simulee = simulations[:, 1]
 # Visualisation
 
 plt.figure(figsize=(10, 6))
-sns.kdeplot(x=cout_simules, y=duree_simulee, cmap="viridis", fill=True, thresh=0.05, levels=100,fontsize=10)
-plt.scatter(cout_simules, duree_simulee, s=10, alpha=0.3, color='blue', label='Simulations Monte Carlo',fontsize=10)
+sns.kdeplot(x=cout_simules, y=duree_simulee, cmap="viridis", fill=True, thresh=0.05, levels=100)
+plt.scatter(cout_simules, duree_simulee, s=10, alpha=0.3, color='blue', label='Simulations Monte Carlo')
 
-plt.title("Simulation Monte Carlo multivariée : Dépassement Coût vs Écart Durée" , fontsize=12)
-plt.xlabel("Dépassement Coût",fontsize=12)
-plt.ylabel("Écart Durée (jours)",fontsize=12)
+plt.title("Simulation Monte Carlo multivariée : Dépassement Coût vs Écart Durée")
+plt.xlabel("Dépassement Coût")
+plt.ylabel("Écart Durée (jours)")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
