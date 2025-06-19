@@ -18,7 +18,6 @@ import textwrap
 
 # Interfaces
 import streamlit as st
-import tkinter as tk
 
 # Statistiques et traitement scientifique
 import scipy
